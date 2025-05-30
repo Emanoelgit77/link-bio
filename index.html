@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claudia Francisca - Terapeuta Capilar Integrativa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&family=Manrope:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f3ef;
+            color: #5a2828;
+            line-height: 1.6;
+            max-width: 430px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            position: relative;
+        }
+        
+        .background-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Seta animada */
+        .arrow-down {
+            position: absolute;
+            top: 28%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: #5f1114; /* Nova cor */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 15;
+            animation: bounce 2s infinite;
+        }
+        
+        .arrow-down::after {
+            content: '';
+            width: 12px;
+            height: 12px;
+            border-right: 3px solid white;
+            border-bottom: 3px solid white;
+            transform: rotate(45deg) translateY(-2px);
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+        
+        /* Seção de boas-vindas */
+        .welcome-section {
+            position: absolute;
+            top: 33%;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            z-index: 10;
+            text-align: center;
+        }
+        
+        .welcome-title {
+            font-family: 'Playfair Display', serif;
+            color: #5f1114; /* Nova cor */
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .welcome-text {
+            color: #5f1114; /* Nova cor */
+            font-size: 1rem;
+            max-width: 90%;
+            margin: 0 auto 2.5rem;
+            line-height: 1.4;
+        }
+        
+        /* Estilos para a seção de cards */
+        .content-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem; /* Aumentado de 1.5rem para 1.8rem */
+            padding: 0;
+            align-items: center;
+        }
+        
+        .card {
+            border-radius: 15px;
+            overflow: hidden;
+            width: 100%;
+            max-width: 85%;
+            height: 200px;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            cursor: pointer;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombreado discreto */
+            border: 1px solid rgba(95, 17, 20, 0.2); /* Borda fina discreta */
+        }
+        
+        .card-1 { background-image: url('https://i.imgur.com/QlF8IWK.jpeg'); }
+        .card-2 { background-image: url('https://i.imgur.com/1EVXwWs.jpeg'); }
+        .card-3 { background-image: url('https://i.imgur.com/AxmqJiI.jpeg'); }
+        .card-4 { background-image: url('https://i.imgur.com/E39NxmN.jpeg'); }
+        
+        
+        .card:hover {
+            transform: translateY(-3px);
+            transition: transform 0.3s ease;
+        }
+        
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Rodapé com logo */
+        .footer {
+            position: absolute;
+            bottom: 2%; /* Descido um pouco mais */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
+            text-align: center;
+            width: 100%;
+        }
+        
+        .footer-logo {
+            width: 180px;
+            height: auto;
+            margin-bottom: 15px; /* Aumentado o espaço */
+        }
+        
+        .copyright {
+            font-size: 0.7rem;
+            color: #ffffff; /* Cor branca */
+            text-align: center;
+            margin-top: 5px;
+        }
+        
+        .copyright a {
+            color: #ffffff; /* Cor branca */
+            text-decoration: none;
+        }
+        
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Ajustes para dispositivos móveis */
+        @media (max-width: 480px) {
+            .arrow-down {
+                top: 26%;
+                width: 36px;
+                height: 36px;
+            }
+            
+            .welcome-section {
+                top: 31%;
+            }
+            
+            .welcome-title {
+                font-size: 2.2rem;
+            }
+            
+            .welcome-text {
+                font-size: 0.9rem;
+                margin-bottom: 2.2rem;
+            }
+            
+            .card {
+                height: 180px;
+                max-width: 90%;
+            }
+            
+            .content-cards {
+                gap: 1.4rem; /* Aumentado de 1.2rem para 1.4rem */
+            }
+            
+            .footer-logo {
+                width: 160px;
+                margin-bottom: 12px;
+            }
+            
+            .copyright {
+                font-size: 0.65rem;
+            }
+        }
+        
+        @media (max-width: 380px) {
+            .arrow-down {
+                top: 24%;
+                width: 32px;
+                height: 32px;
+            }
+            
+            .welcome-section {
+                top: 29%;
+            }
+            
+            .welcome-title {
+                font-size: 2rem;
+            }
+            
+            .welcome-text {
+                font-size: 0.85rem;
+                margin-bottom: 2rem;
+            }
+            
+            .card {
+                height: 160px;
+                max-width: 95%;
+            }
+            
+            .content-cards {
+                gap: 1.2rem; /* Aumentado de 1rem para 1.2rem */
+            }
+            
+            .footer-logo {
+                width: 140px;
+                margin-bottom: 10px;
+            }
+            
+            .copyright {
+                font-size: 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Imagem de fundo -->
+        <img src="https://i.imgur.com/P2MxHCg.jpeg" alt="Claudia Francisca" class="background-image">
+        
+        <!-- Seta animada -->
+        <div class="arrow-down"></div>
+        
+        <!-- Seção de boas-vindas e cards sobreposta -->
+        <div class="welcome-section">
+            <h1 class="welcome-title">Oi Bunita!</h1>
+            <p class="welcome-text">Para falar com a gente, é só clicar nos botões abaixo e escolher o atendimento que você precisa.</p>
+            
+            <div class="content-cards">
+                <div class="card card-1" onclick="window.open('https://wa.me/555191010207', '_blank')"></div>
+                <div class="card card-2" onclick="window.open('https://claudiafrancisca.com.br/', '_blank')"></div>
+                <div class="card card-3" onclick="window.open('https://forms.gle/M6yL28cwrcTq2xrr5', '_blank')"></div>
+                <div class="card card-4" onclick="window.open('https://youtube.com/@claudiafrancisca?si=xi3SM91eCbmfcUfX', '_blank')"></div>
+            </div>
+        </div>
+        
+        <!-- Rodapé com logo -->
+        <div class="footer">
+            <img src="https://i.imgur.com/NXUKBnq.png" alt="Claudia Francisca Logo" class="footer-logo">
+            <div class="copyright">
+                © Todos os direitos reservados a Claudia Francisca<br>
+                Desenvolvido por: <a href="https://wa.me/558491569356" target="_blank">Velton Anjos</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Função para verificar se o elemento está visível na tela
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        // Função para animar os cards quando visíveis
+        function handleScroll() {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                if (isElementInViewport(card) && !card.classList.contains('visible')) {
+                    setTimeout(() => {
+                        card.classList.add('visible');
+                    }, 150 * index);
+                }
+            });
+        }
+
+        // Executa a animação quando a página carrega e no scroll
+        window.addEventListener('load', () => {
+            setTimeout(handleScroll, 300);
+        });
+
+        window.addEventListener('scroll', handleScroll);
+    </script>
+</body>
+</html>
